@@ -215,57 +215,56 @@ export default function Home({ go, ready }) {
         ))}
 
         {/* Next / Prev Manual Arrow Controls */}
-        <div style={{
-          position: 'absolute',
-          top: '50%',
-          left: '40px',
-          transform: 'translateY(-50%)',
-          zIndex: 10,
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '16px'
-        }}>
-          <button
-            onClick={() => handleIndicatorClick((currentSlide - 1 + SLIDES.length) % SLIDES.length)}
-            style={{
-              width: '48px',
-              height: '48px',
-              border: '1px solid rgba(245,244,240,.3)',
-              color: '#F5F4F0',
-              borderRadius: '50%',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              cursor: 'pointer',
-              background: 'transparent',
-              transition: 'all 0.25s'
-            }}
-            onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#F5F4F0'; e.currentTarget.style.background = 'rgba(245,244,240,.1)'; }}
-            onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(245,244,240,.3)'; e.currentTarget.style.background = 'transparent'; }}
-          >
-            ←
-          </button>
-          <button
-            onClick={() => handleIndicatorClick((currentSlide + 1) % SLIDES.length)}
-            style={{
-              width: '48px',
-              height: '48px',
-              border: '1px solid rgba(245,244,240,.3)',
-              color: '#F5F4F0',
-              borderRadius: '50%',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              cursor: 'pointer',
-              background: 'transparent',
-              transition: 'all 0.25s'
-            }}
-            onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#F5F4F0'; e.currentTarget.style.background = 'rgba(245,244,240,.1)'; }}
-            onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(245,244,240,.3)'; e.currentTarget.style.background = 'transparent'; }}
-          >
-            →
-          </button>
-        </div>
+        <button
+          onClick={() => handleIndicatorClick((currentSlide - 1 + SLIDES.length) % SLIDES.length)}
+          style={{
+            position: 'absolute',
+            top: '50%',
+            left: '40px',
+            transform: 'translateY(-50%)',
+            zIndex: 10,
+            width: '48px',
+            height: '48px',
+            border: '1px solid rgba(245,244,240,.3)',
+            color: '#F5F4F0',
+            borderRadius: '50%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            cursor: 'pointer',
+            background: 'transparent',
+            transition: 'all 0.25s'
+          }}
+          onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#F5F4F0'; e.currentTarget.style.background = 'rgba(245,244,240,.1)'; }}
+          onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(245,244,240,.3)'; e.currentTarget.style.background = 'transparent'; }}
+        >
+          ←
+        </button>
+        <button
+          onClick={() => handleIndicatorClick((currentSlide + 1) % SLIDES.length)}
+          style={{
+            position: 'absolute',
+            top: '50%',
+            right: '40px',
+            transform: 'translateY(-50%)',
+            zIndex: 10,
+            width: '48px',
+            height: '48px',
+            border: '1px solid rgba(245,244,240,.3)',
+            color: '#F5F4F0',
+            borderRadius: '50%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            cursor: 'pointer',
+            background: 'transparent',
+            transition: 'all 0.25s'
+          }}
+          onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#F5F4F0'; e.currentTarget.style.background = 'rgba(245,244,240,.1)'; }}
+          onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(245,244,240,.3)'; e.currentTarget.style.background = 'transparent'; }}
+        >
+          →
+        </button>
 
         {/* ─── SLIDER CONTROLS ─── */}
         <div className="hero__controls">
