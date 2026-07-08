@@ -259,9 +259,33 @@ export default function Nav({ page, go, ready }) {
       <nav ref={navRef} className={['nav', isSolid ? 'nav--solid' : '', transparent ? 'nav--hero-transparent' : ''].join(' ')}>
         
         {/* Navbar main links row */}
-        <div className="nav__inner">
+        <div className="nav__inner" style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'relative' }}>
+          
+          {/* Centered Brand Logo (Anchor) - placed absolute or left relative to avoid grids on mobile */}
+          <span 
+            className="nav__brand-wrapper"
+            onMouseEnter={hoverBrand}
+            onMouseLeave={leaveBrand}
+            onClick={() => nav('home')}
+            style={{ cursor: 'pointer', zIndex: 1001 }}
+          >
+            <div className="nav__logo-container" ref={logoImgRef}>
+              <img 
+                id="navbar-logo-img"
+                src={transparent ? "/logo_white.svg" : "/logo_black.svg"} 
+                alt="LorVen Systems" 
+                style={{ 
+                  height: '36px', 
+                  width: 'auto', 
+                  display: 'block',
+                  opacity: ready ? 1 : 0,
+                  transition: ready ? 'opacity 0.25s cubic-bezier(0.25, 1, 0.5, 1) 0.85s' : 'none'
+                }} 
+              />
+            </div>
+          </span>
+
           <div className="nav__menu-container">
-            
             {/* 1. About */}
             <span 
               className="nav__link-wrapper"
@@ -283,28 +307,7 @@ export default function Nav({ page, go, ready }) {
               </span>
             </span>
 
-            {/* 3. Centered Brand Logo (Anchor) */}
-            <span 
-              className="nav__brand-wrapper"
-              onMouseEnter={hoverBrand}
-              onMouseLeave={leaveBrand}
-              onClick={() => nav('home')}
-            >
-              <div className="nav__logo-container" ref={logoImgRef}>
-                <img 
-                  id="navbar-logo-img"
-                  src={transparent ? "/logo_white.svg" : "/logo_black.svg"} 
-                  alt="LorVen Systems" 
-                  style={{ 
-                    height: '48px', 
-                    width: 'auto', 
-                    display: 'block',
-                    opacity: ready ? 1 : 0,
-                    transition: ready ? 'opacity 0.25s cubic-bezier(0.25, 1, 0.5, 1) 0.85s' : 'none'
-                  }} 
-                />
-              </div>
-            </span>
+            <div style={{ width: '160px' }} /> {/* Spacer for centered logo spacing on desktop */}
 
             {/* 4. Services */}
             <span 
@@ -326,14 +329,13 @@ export default function Nav({ page, go, ready }) {
             >
               <span className="nav__link">Contact</span>
             </span>
-
           </div>
 
           {/* Mobile Hamburger trigger */}
           <div className="hamburger"
-               style={{ color: transparent ? '#F5F4F0' : 'var(--ink)' }}
+               style={{ color: transparent ? '#F5F4F0' : 'var(--ink)', zIndex: 1001 }}
                onClick={() => setDrawer(true)}>
-             <span /><span /><span />
+             <span style={{ display: 'block', width: '24px', height: '2px', backgroundColor: 'currentColor', margin: '4px 0' }}/><span style={{ display: 'block', width: '24px', height: '2px', backgroundColor: 'currentColor', margin: '4px 0' }}/><span style={{ display: 'block', width: '24px', height: '2px', backgroundColor: 'currentColor', margin: '4px 0' }}/>
           </div>
 
         </div>
