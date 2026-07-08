@@ -64,8 +64,6 @@ export default function Home({ go, ready }) {
   const isFirstActive = useRef(true);
 
   useEffect(() => {
-    if (!ready) return;
-
     const ctx = gsap.context(() => {
       /* Parallax for all slide background images */
       gsap.utils.toArray('.hero__bg').forEach(bg => {
@@ -88,17 +86,10 @@ export default function Home({ go, ready }) {
           scrollTrigger: { trigger: el, start: 'top 86%' }
         });
       });
-
-      gsap.utils.toArray('.g-clip').forEach(el => {
-        gsap.fromTo(el, { clipPath: 'inset(100% 0 0 0)' }, {
-          clipPath: 'inset(0% 0 0 0)', duration: 1.3, ease: 'power4.out',
-          scrollTrigger: { trigger: el, start: 'top 82%' }
-        });
-      });
     }, root);
 
     return () => ctx.revert();
-  }, [ready]);
+  }, []);
 
   // Slider animation handler
   useEffect(() => {

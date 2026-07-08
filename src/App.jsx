@@ -25,7 +25,7 @@ const Terms      = lazy(() => import('./pages/Terms'));
 const NotFound   = lazy(() => import('./pages/NotFound'));
 
 export default function App() {
-  const [ready, setReady] = useState(false);
+  const [ready, setReady] = useState(true);
   const [page,  setPage]  = useState('home');
   const [lenis, setLenis] = useState(null);
   const isFirstLoad = useRef(true);

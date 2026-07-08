@@ -668,9 +668,9 @@ a { text-decoration: none; color: inherit; }
 /* ═══════════════════════════════════════════════════════
    GSAP INITIAL STATES
 ═══════════════════════════════════════════════════════ */
-.g-fade { opacity: 0; }
-.g-up { opacity: 0; transform: translateY(48px); }
-.g-clip { clip-path: inset(100% 0 0 0); }
+.g-fade { opacity: 1; }
+.g-up { opacity: 1; transform: none; }
+.g-clip { clip-path: none; }
 
 /* ═══════════════════════════════════════════════════════
    FORM
